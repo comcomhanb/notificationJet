@@ -1,0 +1,25 @@
+{
+  "mobileBackends": {
+    "HNA": {
+      "baseUrl": "https://skmobile-a515187.mobileenv.us2.oraclecloud.com:443",
+      "applicationKey": "YOUR_BACKEND_APPLICATION_KEY",
+      "authorization": {
+        "basicAuth": {
+          "backendId": "fa2acf7c-871f-41de-94c4-fdc92eba03c5",
+          "anonymousToken": "QTUxNTE4N19TS01PQklMRV9NT0JJTEVfQU5PTllNT1VTX0FQUElEOnAua1J6eXdtN2V2aTZn"
+        },
+        "oAuth": {
+          "clientId": "YOUR_CLIENT_ID",
+          "clientSecret": "YOUR_ClIENT_SECRET",
+          "tokenEndpoint": "YOUR_TOKEN_ENDPOINT"
+        },
+        "facebookAuth":{
+          "facebookAppId": "YOUR_FACEBOOK_APP_ID"
+        },
+        "ssoAuth":{
+          "tokenEndpoint": "YOUR_SSO_TOKEN_ENDPOINT"
+        }
+      }
+    }
+  }
+}
