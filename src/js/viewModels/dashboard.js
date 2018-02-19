@@ -40,65 +40,104 @@
             self.isLoggedIn(false);
             alert("Invalid username/password");
         };
-        self.registerNotification = function () {
-        console.log("Notification register...");
-                console.log("self.appId() : ", self.appId());
 
-        try {
-          var push = PushNotification.init({
-                              android: {
-                                  senderID: self.androidSenderId()
-                              },
-                              browser: {
-                                  pushServiceURL: 'http://push.api.phonegap.com/v1/push'
-                              },
-                              ios: {
-                                  alert: "true",
-                                  badge: "true",
-                                  sound: "false"
-                              },
-                              windows: {}
-                          });
+        self.registerNotification = function() {  
+          var defer = $.Deferred();  
+          if (typeof PushNotification !== 'undefined') {  
+              try {
+                  var push = PushNotification.init({  
+                      "android": {  
+                          // Google Project Number here  
+                          senderID: "747994813668"  
+                      }  
+                  });  
+                  push.on('registration', function (data) {  
+                      var regId = data.registrationId;
+                      deviceHandshakeforCordova(regId);  
+                  });  
+                  push.on('notification', function (data) {  
+                      alert("Push Notification from Oracle MCS: " + data.message);  
+                  });  
+                  push.on('error', function (e) {  
+                      alert("Push Notification Error=" + e.message);  
+                  });  
+              } catch (ex) {  
+                  alert("Error registering device with MCS" + ex);  
+                  defer.reject();  
+              }  
+          } else {  
+              alert("PushNotification NOT Defined!");  
+              defer.reject();  
+          }  
+          return $.when(defer);  
+      }  
+      
+      function deviceHandshakeforCordova(registrationID) {  
+          var appId = "org.oraclejet.notification";  
+          var appVersion = "1.0";  
+          mbe.registerNotification(registrationID, appId, appVersion);  
+      }
 
-                          push.on('registration', function (data) {
-                              //settings.deviceToken(data.registrationId);
-                              //settings.registrationId(data.registrationId);
-  //                            alert(data.registrationId);
-                          console.log("push.on('registration' :::::::: " + data);
+  //       self.registerNotification = function () {
+  //       console.log("Notification register...");
+  //               console.log("self.appId() : ", self.appId());
 
-                              try {
-                                  mbe.registerForNotifications(data.registrationId, self.appId(), self.appVersion(),
-                                          function (statusCode, headers, data) {
-                                              self.isLoadingfinished(false);
-        console.log("Notification register... successing ", data.registrationId);
+  //       try {
+  //         var push = PushNotification.init({
+  //                             android: {
+  //                                 senderID: self.androidSenderId()
+  //                             },
+  //                             browser: {
+  //                                 pushServiceURL: 'http://push.api.phonegap.com/v1/push'
+  //                             },
+  //                             ios: {
+  //                                 alert: "true",
+  //                                 badge: "true",
+  //                                 sound: "false"
+  //                             },
+  //                             windows: {}
+  //                         });
 
-                                          }, function (statusCode, data) {
-        console.log("Notification register... failing", data.registrationId);
+  //                         push.on('registration', function (data) {
+  //                             //settings.deviceToken(data.registrationId);
+  //                             //settings.registrationId(data.registrationId);
+  // //                            alert(data.registrationId);
+  //                         console.log("push.on('registration' :::: " + JSON.stringify(data.registrationId));
 
-                                      alert("Register device fail!");
-                                  });
-                              } catch (e) {
-                                  self.isLoadingfinished(false);
-                                  alert("Register device encounter an exceptionL " + e.message
-                                          );
-                              }
-                          });
 
-                          push.on('notification', function (data) {
-                              try {
-                                  alert("Push Notification from Oracle MCS: " + data.message);  
-                              } catch (e) {
-                                  console.log("no ID in notification");
-                              }
-                          });
+  //                             try {
+  //                                 mbe.registerForNotifications(data.registrationId, self.appId(), self.appVersion(),
+  //                                         function (statusCode, headers, data) {
+  //                                             self.isLoadingfinished(false);
+  //       console.log("Notification register... successing ", data.registrationId);
 
-                          push.on('error', function (e) {
-                              alert("You can not access google at this time, try to use a google accessable phone like HUAWEI", "Error");
-                          });
-                      } catch (e) {
-                          alert("You can not access google at this time, try to use a google accessable phone like HUAWEI", "Error");
-                      }
-                  };       
+  //                                         }, function (statusCode, data) {
+  //       console.log("Notification register... failing");
+
+  //                                     alert("Register device fail!");
+  //                                 });
+  //                             } catch (e) {
+  //                                 self.isLoadingfinished(false);
+  //                                 alert("Register device encounter an exceptionL " + e.message
+  //                                         );
+  //                             }
+  //                         });
+
+  //                         push.on('notification', function (data) {
+  //                             try {
+  //                                 alert("Push Notification from Oracle MCS: " + data.message);  
+  //                             } catch (e) {
+  //                                 console.log("no ID in notification");
+  //                             }
+  //                         });
+
+  //                         push.on('error', function (e) {
+  //                             alert("You can not access google at this time, try to use a google accessable phone like HUAWEI", "Error");
+  //                         });
+  //                     } catch (e) {
+  //                         alert("You can not access google at this time, try to use a google accessable phone like HUAWEI", "Error");
+  //                     }
+  //                 };       
         self.handleActivated = function(info) {
           // Implement if needed
         };
