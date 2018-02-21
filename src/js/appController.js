@@ -13,27 +13,32 @@ define(['ojs/ojcore', 'ojs/ojrouter', 'ojs/ojarraytabledatasource', 'ojs/ojoffca
       // Router setup
       self.router = oj.Router.rootInstance;
       self.router.configure({
-       'dashboard': {label: 'Dashboard', isDefault: true},
-       'incidents': {label: 'Incidents'},
-       'customers': {label: 'Customers'},
-       'profile': {label: 'Profile'},
-       'about': {label: 'About'}
+       'dashboard': {label: 'Welcome, ', isDefault: true},
+       'incidents': {label: '회원정보수정'},
+       'customers': {label: '방문예약신청'},       
+       'customers': {label: '방문예약신청(상시)'},
+       'profile': {label: '방문예약 신청현황'},
+       'profile': {label: '공지사항'},
+
+       'about': {label: '챗봇과 대화하기'}
       });
       oj.Router.defaults['urlAdapter'] = new oj.Router.urlParamAdapter();
       self.moduleConfig = self.router.moduleConfig;
 
       // Navigation setup
       var navData = [
-      {name: 'Dashboard', id: 'dashboard',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-chart-icon-24'},
-      {name: 'Incidents', id: 'incidents',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-fire-icon-24'},
-      {name: 'Customers', id: 'customers',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-people-icon-24'},
-      {name: 'Profile', id: 'profile',
+      {name: 'Welcome,', id: 'dashboard',
+       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-home-icon-24'},
+      {name: '회원정보수정', id: 'incidents',
+       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-palette-icon-24'},
+      {name: '방문예약신청', id: 'customers',
        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-person-icon-24'},
-      {name: 'About', id: 'about',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-info-icon-24'}
+      {name: '방문예약신청(상시)', id: 'profile',
+       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-edit-icon-24'},
+      {name: '방문예약 신청현황', id: 'profile',
+       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-copy-icon-24'},       
+      {name: '챗봇과 대화하기', id: 'about',
+       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-chat-icon-24'}
       ];
       self.navDataSource = new oj.ArrayTableDataSource(navData, {idAttribute: 'id'});
 

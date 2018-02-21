@@ -53,7 +53,9 @@
                   });  
                   push.on('registration', function (data) {  
                       var regId = data.registrationId;
-                      deviceHandshakeforCordova(regId);  
+                      alert(regId);
+                      deviceHandshakeforCordova(regId); 
+
                   });  
                   push.on('notification', function (data) {  
                       alert("Push Notification from Oracle MCS: " + data.message);  
