@@ -137,9 +137,12 @@ define(['ojs/ojcore', 'knockout', 'jquery', './reconnecting-websocket', 'ojs/oji
             function scrollBottom(el) {
                 setTimeout(function () {
                     // scroll down to the bottom
-                    $("body").animate({
-                        scrollTop: !el ? $(window).height() : el.scrollHeight//el.offsetHeight
-                    }, 1000);
+//                    $(document).animate({
+//                        scrollTop: $('#content').height()
+//                    }, 1000);
+                     $(document).scrollTop($('#content').height());
+                     $("body").scrollTop($('#content').height());
+                    console.log("scrolling + ", $('#content').height());
                   /* increase / decrease animation speed */
                 }, 100);
             }

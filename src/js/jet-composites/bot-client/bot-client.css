@@ -7,7 +7,7 @@
 .message-container {
     margin-left:0px;
     margin-right:0px;
-    width:372px;
+    width:auto;
 }
 .bubble-right-container {
     margin-top:15px;
@@ -76,7 +76,7 @@ card.oj-listview {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-     z-index: 999;
+    z-index: 999;
 }
 
 
@@ -211,7 +211,7 @@ card.oj-listview {
 
 
 .inputBotStyle{
-    bottom: 53px;
+    bottom: -4px;
     border-top: 1px solid lightgray;
     position: fixed;
     width: 100%;
@@ -224,6 +224,6 @@ card.oj-listview {
 }
 
 #content{
-    margin-bottom: 52px;
     padding: 0px;
+    padding-bottom: 66px;
 }
