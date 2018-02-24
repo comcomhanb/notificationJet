@@ -3923,8 +3923,16 @@ function Notifications(backend) {
     headers["Content-Type"] = "application/json";
           mcs._Logger.log(mcs.logLevelInfo, ">>>>>>>>>>>>>> headers : " + JSON.stringify(headers));
 
+var headersJSON = {
+    //'Content-Type' : 'application/json',
+   // 'Oracle-Mobile-Backend-ID' : '186ae657-0ef8-4947-a1bd-2b9c7b95592c',
+  //  'Authorization' : 'Basic c2toMWNsb3VkQGdtYWlsLmNvbTpIeW5peCo5MA=='
 
+            'Authorization': "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsIng1dCI6IkZ3Y3ZGX2QtaU91c0s4WXN5WktrYm9EREdiNCJ9.eyJvcmFjbGUub2F1dGgudGtfY29udGV4dCI6InVzZXJfYXNzZXJ0aW9uIiwiZXhwIjoxNTE5NDg0NjIyLCJzdWIiOiJBNTE1MTg3X1NLTU9CSUxFX01PQklMRV9BTk9OWU1PVVNfQVBQSUQiLCJpc3MiOiJhNTE1MTg3Iiwib3JhY2xlLm9hdXRoLnN1Yi5pZF90eXBlIjoiTERBUF9VSUQiLCJwcm4iOiJBNTE1MTg3X1NLTU9CSUxFX01PQklMRV9BTk9OWU1PVVNfQVBQSUQiLCJvcmFjbGUub2F1dGguY2xpZW50X29yaWdpbl9pZCI6ImViODRhMTU2LTNiZmMtNDExMi04ODE1LTdhZjIwNGMxOGUzYSIsImlhdCI6MTUxOTQ2MzAyMiwidXNlci50ZW5hbnQubmFtZSI6ImE1MTUxODciLCJvcmFjbGUub2F1dGgucHJuLmlkX3R5cGUiOiJMREFQX1VJRCJ9.TEy916dItlTAnxR8J6tKguD4PNlS8IqmMP_eNxxSulXFPcJU-LieCF4bnNGIoWc51o6o3GM_AS96bYONg1gRglc073eVIIz-uIRt6zRZwQGut88kSC2Yq3vO23hz4MTEq3FiPKlqLS20oQwmoHp3vYJS5SHZBANiqvB9rj9BqUc5spl_DaQxOtEwdIOFuEn6nAcZ1yeI4-a0tjOkto4YE9NoJn91R_MHxJu1pqVGHarEzahkhWG3tns36m1gppdy4iRNzSaalBbmZoXV9QgAU4Pb-ww54yIl5ciB90x5_Mhh8PQr7pwmUaVrsAAGK1ONren8iJqxEMifpbLfgQ9cmw",
+        'Content-Type': "application/json"
+}
     if(typeof device == "undefined") {
+
       payload = {
         "notificationToken": deviceToken,
         "mobileClient": {
@@ -3933,6 +3941,8 @@ function Notifications(backend) {
           "platform": notifications.getDevicePlatform()
         }
       }
+
+
     }
     else{
       payload = {
@@ -3943,6 +3953,7 @@ function Notifications(backend) {
           "platform": device.platform.toUpperCase()
         }
       }
+
     }
               mcs._Logger.log(mcs.logLevelInfo, ">>>>>>>>>>>>>> payload : " + JSON.stringify(payload));
 
@@ -3950,7 +3961,7 @@ function Notifications(backend) {
     mcs.MobileBackendManager.platform.invokeService({
       method: 'POST',
       url: notifications.backend.getPlatformUrl("devices/register"),
-      headers: headers,
+      headers: headersJSON,
       body: JSON.stringify(payload),
       success: function(response) {
         mcs._Logger.log(mcs.logLevelInfo,  "Device registered for push notifications. " + response.status);
@@ -3960,7 +3971,8 @@ function Notifications(backend) {
         }
       },
       error: function(statusCode, data) {
-          mcs._Logger.log(mcs.logLevelError,  "Device registration for push notifications failed! sdf" + statusCode);
+          mcs._Logger.log(mcs.logLevelError,  "Device registration for push notifications failed! ::::: " + statusCode + ", data : " + data);
+          //mcs._Logger.log(mcs.logLevelInfo, JSON.stringify(headers));
 
         if(errorCallback != null) {
           errorCallback(statusCode,data);

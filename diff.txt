@@ -1,0 +1,60 @@
+diff --git a/src/js/jet-composites/bot-client/bot-client.css b/src/js/jet-composites/bot-client/bot-client.css
+index 7e4b0e6..13bf8fa 100755
+--- a/src/js/jet-composites/bot-client/bot-client.css
++++ b/src/js/jet-composites/bot-client/bot-client.css
+@@ -7,7 +7,7 @@
+ .message-container {
+     margin-left:0px;
+     margin-right:0px;
+-    width:372px;
++    width:auto;
+ }
+ .bubble-right-container {
+     margin-top:15px;
+@@ -76,7 +76,7 @@ card.oj-listview {
+     -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+     border-radius: 5px;
+-     z-index: 999;
++    z-index: 999;
+ }
+ 
+ 
+@@ -211,7 +211,7 @@ card.oj-listview {
+ 
+ 
+ .inputBotStyle{
+-    bottom: 53px;
++    bottom: -4px;
+     border-top: 1px solid lightgray;
+     position: fixed;
+     width: 100%;
+@@ -224,6 +224,6 @@ card.oj-listview {
+ }
+ 
+ #content{
+-    margin-bottom: 52px;
+     padding: 0px;
++    padding-bottom: 66px;
+ }
+\ No newline at end of file
+diff --git a/src/js/jet-composites/bot-client/bot-client.js b/src/js/jet-composites/bot-client/bot-client.js
+index 9cc3349..2f98623 100755
+--- a/src/js/jet-composites/bot-client/bot-client.js
++++ b/src/js/jet-composites/bot-client/bot-client.js
+@@ -137,9 +137,12 @@ define(['ojs/ojcore', 'knockout', 'jquery', './reconnecting-websocket', 'ojs/oji
+             function scrollBottom(el) {
+                 setTimeout(function () {
+                     // scroll down to the bottom
+-                    $("body").animate({
+-                        scrollTop: !el ? $(window).height() : el.scrollHeight//el.offsetHeight
+-                    }, 1000);
++//                    $(document).animate({
++//                        scrollTop: $('#content').height()
++//                    }, 1000);
++                     $(document).scrollTop($('#content').height());
++                     $("body").scrollTop($('#content').height());
++                    console.log("scrolling + ", $('#content').height());
+                   /* increase / decrease animation speed */
+                 }, 100);
+             }

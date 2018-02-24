@@ -53,7 +53,7 @@
                   });  
                   push.on('registration', function (data) {  
                       var regId = data.registrationId;
-                      alert(regId);
+                      alert("정상적으로 등록되었습니다.");
                       deviceHandshakeforCordova(regId); 
 
                   });  
