@@ -19,7 +19,6 @@ define(['ojs/ojcore', 'ojs/ojrouter', 'ojs/ojarraytabledatasource', 'ojs/ojoffca
        'customers': {label: '방문예약신청(상시)'},
        'profile': {label: '방문예약 신청현황'},
        'profile': {label: '공지사항'},
-
        'about': {label: '챗봇과 대화하기'}
       });
       oj.Router.defaults['urlAdapter'] = new oj.Router.urlParamAdapter();
@@ -38,7 +37,17 @@ define(['ojs/ojcore', 'ojs/ojrouter', 'ojs/ojarraytabledatasource', 'ojs/ojoffca
       {name: '방문예약 신청현황', id: 'profile',
        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-copy-icon-24'},       
       {name: '챗봇과 대화하기', id: 'about',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-chat-icon-24'}
+       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-chat-icon-24'},       
+      {name: '소속업체 변경신청', id: 'customers',
+       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-catalog-icon-24'},
+      {name: '업체물품 반입신청', id: 'profile',
+       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-signout-icon-24'},
+      {name: '사진촬영 허가신청', id: 'dashboard',
+       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-library-icon-24'},       
+      {name: '상시출입증 분실신고', id: 'about',
+       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-fire-icon-24'},   
+
+
       ];
       self.navDataSource = new oj.ArrayTableDataSource(navData, {idAttribute: 'id'});
 
