@@ -13,7 +13,7 @@ define(['ojs/ojcore', 'ojs/ojrouter', 'ojs/ojarraytabledatasource', 'ojs/ojoffca
       // Router setup
       self.router = oj.Router.rootInstance;
       self.router.configure({
-       'dashboard': {label: 'Welcome, ', isDefault: true},
+       'dashboard': {label: 'PLAN YOUR STORY', isDefault: true},
        'incidents': {label: '회원정보수정'},
        'customers': {label: '방문예약신청'},       
        'customers': {label: '방문예약신청(상시)'},
@@ -26,26 +26,20 @@ define(['ojs/ojcore', 'ojs/ojrouter', 'ojs/ojarraytabledatasource', 'ojs/ojoffca
 
       // Navigation setup
       var navData = [
-      {name: 'Welcome,', id: 'dashboard',
+      {name: 'PLAN YOUR STORY', id: 'dashboard',
        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-home-icon-24'},
-      {name: '회원정보수정', id: 'incidents',
+      {name: '보험상품', id: 'incidents',
        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-palette-icon-24'},
-      {name: '방문예약신청', id: 'customers',
+      {name: '고객센터', id: 'customers',
        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-person-icon-24'},
-      {name: '방문예약신청(상시)', id: 'profile',
+      {name: '라이프플래너', id: 'profile',
        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-edit-icon-24'},
-      {name: '방문예약 신청현황', id: 'profile',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-copy-icon-24'},       
+      {name: '회사소개', id: 'profile',
+       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-copy-icon-24'},
+      {name: '공시실', id: 'customers',
+       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-catalog-icon-24'},              
       {name: '챗봇과 대화하기', id: 'about',
        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-chat-icon-24'},       
-      {name: '소속업체 변경신청', id: 'customers',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-catalog-icon-24'},
-      {name: '업체물품 반입신청', id: 'profile',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-signout-icon-24'},
-      {name: '사진촬영 허가신청', id: 'dashboard',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-library-icon-24'},       
-      {name: '상시출입증 분실신고', id: 'about',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-fire-icon-24'},   
 
 
       ];
