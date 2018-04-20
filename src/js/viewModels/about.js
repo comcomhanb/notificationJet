@@ -14,7 +14,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'jet-composites/bot
                 self.websocketConnectionUrl =  'ws://129.150.115.56:8888/ext/apps/chat/ws?user=<userId>'; 
 
                 self.userId = 'Sunghye Jeon';
-                self.channel = 'DE98EF7A-8F04-44F1-B0C8-9CF06C8C3165';
+                self.channel = '280604AC-0FBC-4AC4-A679-D090414EF63F';
                 // Header Config
                 self.headerConfig = {'viewName': 'header', 'viewModelFactory': app.getHeaderModel()};
 
