@@ -13,12 +13,12 @@ define(['ojs/ojcore', 'ojs/ojrouter', 'ojs/ojarraytabledatasource', 'ojs/ojoffca
       // Router setup
       self.router = oj.Router.rootInstance;
       self.router.configure({
-       'dashboard': {label: 'PLAN YOUR STORY', isDefault: true},
-       'incidents': {label: '회원정보수정'},
+       'dashboard': {label: 'HOME', isDefault: true},
+       'incidents': {label: '회사소개'},
        'customers': {label: '방문예약신청'},       
-       'customers': {label: '방문예약신청(상시)'},
+       'customers': {label: '홍보센터'},
        'profile': {label: '방문예약 신청현황'},
-       'profile': {label: '공지사항'},
+       'profile': {label: '투자정보'},
        'about': {label: '챗봇과 대화하기'}
       });
       oj.Router.defaults['urlAdapter'] = new oj.Router.urlParamAdapter();
@@ -26,17 +26,17 @@ define(['ojs/ojcore', 'ojs/ojrouter', 'ojs/ojarraytabledatasource', 'ojs/ojoffca
 
       // Navigation setup
       var navData = [
-      {name: 'PLAN YOUR STORY', id: 'dashboard',
+      {name: 'HOME', id: 'dashboard',
        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-home-icon-24'},
-      {name: '보험상품', id: 'incidents',
+      {name: '회사소개', id: 'incidents',
        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-palette-icon-24'},
       {name: '고객센터', id: 'customers',
        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-person-icon-24'},
-      {name: '라이프플래너', id: 'profile',
+      {name: '사업영역', id: 'profile',
        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-edit-icon-24'},
-      {name: '회사소개', id: 'profile',
+      {name: '투자정보', id: 'profile',
        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-copy-icon-24'},
-      {name: '공시실', id: 'customers',
+      {name: '홍보센터', id: 'customers',
        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-catalog-icon-24'},              
       {name: '챗봇과 대화하기', id: 'about',
        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-chat-icon-24'},       
