@@ -4,7 +4,7 @@
 <div id="page">
   <!-- Content: all other templates will be called from here! -->
 
-  <div id="content" class="oj-panel oj-margin "  >
+  <div id="content" class="oj-panel oj-margin message-container"  >
     <div class="message-container">
       <div id="listview" data-bind="if: allItems">
         <div data-bind="template: { name: 'chat_template', foreach: allItems, as: 'item' }"></div>
@@ -24,16 +24,16 @@
                data-bind="ojComponent: {
                                   component: 'ojInputText',
                                   value: value,
-                                  placeholder: 'Type a message',
+                                  placeholder: '여기에 입력해주세요.',
                                   optionChange: valueChangeHandler,
                                   rootAttributes: {
                                             style:'max-width:100%'
                                     }
                                   }"/>
       </div>
+      </div>
     </div>
   </div>
-</div>
 
 <!-- Main message template -->
 <script type="text/html" id="chat_template">
@@ -90,6 +90,8 @@
 <!-- BOT Text Template -->
 <script type="text/html" id="text-template-bot">
   <div data-bind="if: text" class="oj-flex " >
+    <img alt="undefined's avatar" class="msg-avatar" src="https://www.gravatar.com/avatar/5e543256c480ac577d30f76f9120eb74.png?s=200&amp;d=mm">
+      
     <div class="oj-flex">
       <div class="oj-flex-item bubble-left" data-bind="css:$data.actions ? 'bubble-left-with-actions' : ''" >
         <span data-bind="text: text"></span>

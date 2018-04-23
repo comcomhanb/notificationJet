@@ -1,12 +1,20 @@
 
 <div class="oj-hybrid-applayout-page">
-  <div class="oj-applayout-fixed-top">
-    <header role="banner" class="oj-hybrid-applayout-header" data-bind="ojModule: headerConfig">
-    </header>
-  </div>
+    <div class="oj-applayout-fixed-top">
+        <header role="banner" class="oj-hybrid-applayout-header" data-bind="ojModule: headerConfig">
+        </header>
+    </div>
 
-  <div id="bg">
-  <img src="css/images/loginBG.png" alt="">
-</div>
+    <div class="oj-applayout-content">
+        <div role="main" class="oj-hybrid-applayout-content">
+            <oj-button id='addIncident' class='float-button' on-click='[[goToChat]]' chroming='half' display='icons'> 
+                <span slot='startIcon' class='oj-fwk-icon chat-icon'></span>
+                Start ChatBot
+            </oj-button>
+            <div id="bg">
+                <img src="css/images/home.png" alt="" style="width: 100%;">
+            </div>
+        </div>
+    </div>
 </div>
 

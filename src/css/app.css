@@ -129,3 +129,65 @@ oj-input-password{
 .oj-button.oj-default.oj-button-half-chrome .oj-button-icon, .oj-button.oj-focus-only.oj-button-half-chrome .oj-button-icon {
   color: white;
 }
+
+/* customizing - Prudential */
+.top-nav-wrapper {
+    padding: 15px 25px;
+    background-color: #002661;
+    border-bottom: 1px solid #003879;
+    color: #fff;
+    font-size: 14px;
+    text-align: left;
+}
+.oj-hybrid-applayout-header {
+/*    background-color: #005baa;*/
+/*    opacity: 0.95;*/
+    background-color: #02549a;
+
+}
+.oj-hybrid-applayout-header-title {
+    color: #ffffff;
+    text-align: center;
+}
+.pru-nav {
+    background-color: #002661;
+}
+.oj-contrast-marker a.oj-navigationlist-item-content .oj-navigationlist-item-label {
+    color: #ffffff;
+}
+.oj-contrast-marker .oj-hover:not(.oj-selected) > a.oj-navigationlist-item-content > .oj-navigationlist-item-label {
+    color: #ffffff;
+}
+.oj-contrast-marker .oj-navigationlist-vertical .oj-navigationlist-item.oj-selected {
+    background-color: #005baa;
+}
+.pru-nav-item {
+    padding: 15px 15px 15px 30px;
+/*    display: block;*/
+    color: #ffffff;
+}
+.pru-nav-item :active {
+    background-color: #005baa;
+}
+.float-button {
+    position: fixed;
+    right: 10px;
+    top: 320px;
+    z-index: 1;
+    border: none;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+}
+.chat-icon {
+    height: 60px;
+    width: 60px;
+    margin: 0 !important;
+}
+.chat-icon::before {
+    height: 57px;
+    width: 60px;
+    content: '';
+    background: url(images/chat_icon.svg);
+    background-size: 60px;
+}

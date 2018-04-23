@@ -15,6 +15,7 @@
 
 .bubble-left
 {
+    max-width: 260px;
     padding: 5px 10px 5px 10px;
     margin-top:5px;
     background: #f1f0f0;
@@ -34,8 +35,8 @@
 
 .message-content-container {
     margin-top: 15px;
-    margin-left:25px;
-    margin-right:25px;
+    margin-left:10px;
+    margin-right:10px;
 }
 
 card.oj-listview {
@@ -226,4 +227,22 @@ card.oj-listview {
 #content{
     padding: 0px;
     padding-bottom: 66px;
+}
+.message-container {
+    height: calc(100% - 10px);
+}
+.msg-avatar {
+    width: 31px;
+    height: 31px;
+    border-radius: 50%;
+    margin-right: 5px;
+    display: inline-block;
+}
+.send-btn {
+    max-width: 16%;
+    background-color: #3c3c3c;
+    
+}
+.sendIcon::before {
+    content: url(images/send_icon.svg);
 }

@@ -46,7 +46,7 @@
   <body>
     <!-- template for rendering navigation items in the drawer -->
     <script type="text/html" id="navTemplate">
-      <li><a href="#">
+      <li class="pru-nav-item"><a href="#">
         <span data-bind="css: $data['iconClass']"></span>
         <!-- ko text: $data['name'] --> <!--/ko-->
       </a></li>
@@ -59,9 +59,13 @@
          ** and the CSS documentation under Support/API Docs/Non-Component Styling
          ** on the JET website for more information on how to use this pattern.
       -->
-      <div id="navDrawer" role="navigation" class="oj-hybrid-applayout-offcanvas oj-contrast-marker oj-offcanvas-start">
-        <!-- User Profile -->
-        <h2 class="demo-profile-name">Sunghye Jeon</h2>
+      <div id="navDrawer" role="navigation" class="pru-nav oj-hybrid-applayout-offcanvas oj-contrast-marker oj-offcanvas-start">
+        <!-- Top Nav -->
+        <div class="top-nav-wrapper">
+            <span class="demo-icon-font demo-signout-icon-24"></span><span style="margin-left: 10px;">사이버창구</span>
+            <span class="demo-icon-font demo-person-icon-24" style="padding-left: 30px;"></span><span style="margin-left: 10px;">채용</span>
+        </div>
+        
         <!-- Navigation -->
         <oj-navigation-list class="oj-navigationlist-stack-icon-label"
                             data="[[navDataSource]]"
@@ -72,6 +76,7 @@
         </oj-navigation-list>
         <div class="oj-flex-bar oj-sm-justify-content-center">
           <h2 class="demo-app-name">Oracle Chatbot</h2>
+<!--          <img src="css/images/logo-prudential.svg" style="width:160px"></img>-->
         </div>
       </div>
    

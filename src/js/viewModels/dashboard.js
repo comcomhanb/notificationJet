@@ -74,6 +74,10 @@
           return $.when(defer);  
       }  
       
+      self.goToChat = function () {
+          app.router.go("about");
+      }
+
       function deviceHandshakeforCordova(registrationID) {  
           var appId = "org.oraclejet.notification";  
           var appVersion = "1.0";  
